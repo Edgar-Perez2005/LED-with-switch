@@ -1,35 +1,24 @@
-const int ledPin = 5;
-const int ledPin2 = 4;
-const int switchPin = A5;
-int switchStatus = 0;
+int ledPin = 5; // the digital pin of the LED
+int switchPin = A1; // the analog pin of the switch
+int switchStatus = 0; 
 
-void setup() {
-  // put your setup code here, to run once:
-
+void setup(){
 pinMode(ledPin, OUTPUT);
-pinMode(ledPin2, OUTPUT);
 pinMode(switchPin, INPUT_PULLUP);
 }
 
-void loop() {
-// put your main code here, to run repeatedly:
- switchStatus = digitalRead(switchPin);  
- 
-if (switchStatus == HIGH) 
+void loop(){
+switchStatus = digitalRead(switchPin);
+
+if(switchStatus == HIGH) // if the switch is on the LED will start blinking
 {
 digitalWrite(ledPin, HIGH);
 digitalWrite(ledPin, LOW);
-delay(700);
-digitalWrite(ledPin2, HIGH);
-digitalWrite(ledPin2, LOW);
-delay(700);
+delay(600);
 }
-else(switchStatus == LOW);
+else(switchStatus == LOW); // if the switch is off than the LED will turn off
 {
 digitalWrite(ledPin, LOW);
-digitalWrite(ledPin2, LOW);
 }
-
-
 
 }
